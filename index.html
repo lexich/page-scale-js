@@ -11,9 +11,10 @@
 		font: inherit;
 		vertical-align: baseline;
   }
-  #test {
+  #container{
     box-sizing: border-box;
 		overflow: hidden;
+    background: grey;
   }
   #element {
     display: block;
@@ -22,15 +23,15 @@
   </style>
 </head>
 <body>
-  <div id="test">
+  <div id="container">
     <div id="element"></div>
   </div>
 	<script src="index.js"></script>
 	<script>
     var el = document.getElementById("element");
 		var p = new PageScaleJs(el, {
-      width: 1200,
-      height: 800
+      width: 1400,
+      height: 1000
     });
 		var iframe = document.createElement("iframe");
 		iframe.setAttribute("src", "https://jquery.com");
