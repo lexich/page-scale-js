@@ -10,15 +10,25 @@
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+		position: relative;
   }
   #container{
     box-sizing: border-box;
 		overflow: hidden;
-    background: grey;
+		position: relative;
   }
   #element {
     display: block;
     box-sizing: border-box;
+  }
+  #info {
+		position: fixed;
+		left: 0px;
+		top: 0;
+		z-index: 10;
+		padding-left: 50px;
+		color: white;
+		background: rgba(0,0,0, 0.7);
   }
   </style>
 </head>
@@ -26,19 +36,29 @@
   <div id="container">
     <div id="element"></div>
   </div>
+	<p id="info">PageScaleJS: resize page and size will be scaled in width interval [700...1400] px, window size <span id="windowsize" /> </p>
+ 	<a target="_blank" href="https://github.com/lexich/page-scale-js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
 	<script src="https://rawgit.com/lexich/page-scale-js/master/index.js"></script>
 	<script>
     var el = document.getElementById("element");
 		var p = new PageScaleJs(el, {
       width: 1400,
       height: 1000,
-      to: 1000
+      to: 700
     });
+		window.addEventListener("resize", update);
+		update();
 		var iframe = document.createElement("iframe");
 		iframe.setAttribute("src", "https://jquery.com");
 		iframe.setAttribute("width", "100%");
 		iframe.setAttribute("height", "100%");
 		el.appendChild(iframe);
+		function update() {
+			var wel = document.getElementById("windowsize");
+			if (wel) {
+				wel.innerHTML = "" + window.innerWidth + "x" + window.innerHeight;
+			}
+		};
 	</script>
 </body>
 </html>
