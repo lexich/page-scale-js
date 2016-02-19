@@ -1,0 +1,42 @@
+<html class="no-js" lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <style>
+  body {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+  }
+  #test {
+    box-sizing: border-box;
+		overflow: hidden;
+  }
+  #element {
+    display: block;
+    box-sizing: border-box;
+  }
+  </style>
+</head>
+<body>
+  <div id="test">
+    <div id="element"></div>
+  </div>
+	<script src="index.js"></script>
+	<script>
+    var el = document.getElementById("element");
+		var p = new PageScaleJs(el, {
+      width: 1200,
+      height: 800
+    });
+		var iframe = document.createElement("iframe");
+		iframe.setAttribute("src", "https://jquery.com");
+		iframe.setAttribute("width", "100%");
+		iframe.setAttribute("height", "100%");
+		el.appendChild(iframe);
+	</script>
+</body>
+</html>
