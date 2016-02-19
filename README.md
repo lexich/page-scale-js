@@ -1,5 +1,8 @@
 ###page-scale-js
 
+[![NPM version](https://badge.fury.io/js/page-scale-js.svg)](http://badge.fury.io/js/page-scale-js)
+[![Bower version](https://badge.fury.io/bo/page-scale-js.svg)](http://badge.fury.io/bo/page-scale-js)
+
 Allow to scale you web-page and you html page reveive image behavior. You shoud to do some simple steps.
 
 * Add to `div` layers. #container has adaptive size. #scale-element is scaled. 
