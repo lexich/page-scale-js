@@ -26,12 +26,13 @@
   <div id="container">
     <div id="element"></div>
   </div>
-	<script src="index.js"></script>
+	<script src="https://rawgit.com/lexich/page-scale-js/master/index.js"></script>
 	<script>
     var el = document.getElementById("element");
 		var p = new PageScaleJs(el, {
       width: 1400,
-      height: 1000
+      height: 1000,
+      to: 1000
     });
 		var iframe = document.createElement("iframe");
 		iframe.setAttribute("src", "https://jquery.com");
