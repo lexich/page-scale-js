@@ -44,9 +44,15 @@
         this.addRange(item.width, item.height, { from: item.from, to: item.to });
       }
     }
-    var resize = this.onResize.bind(this);
+    var handleId;
+    var self = this;
+    var resize = function() {
+      handleId = null;
+      self.onResize();
+    };
     this._onResize = function() {
-      setTimeout(resize, opts.timeout || 500);
+      !handleId && clearTimeout(handleId);
+      handleId = setTimeout(resize, opts.timeout || 500);
     };
     window.addEventListener("resize", this._onResize);
     resize();
