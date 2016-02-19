@@ -2,7 +2,8 @@
 
 Allow to scale you web-page and you html page reveive image behavior. You shoud to do some simple steps.
 
-* Add to `div` layers. #container has adaptive size. #scale-element is scaled. ```html
+* Add to `div` layers. #container has adaptive size. #scale-element is scaled. 
+```html
 <body>
   <div id="container">
     <div id="scale-element">
