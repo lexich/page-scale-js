@@ -10,8 +10,8 @@
   }
 
   function setSize(el, width, height) {
-    el.style.width = width ? ("" + width + "px") : "";
-    el.style.height = height ? ("" + height + "px") : "";
+    el.style.minWidth = width ? ("" + width + "px") : "";
+    el.style.minHeight = height ? ("" + height + "px") : "";
   }
 
   function PageScaleJs(el, options) {
