@@ -25,7 +25,7 @@
       throw new Error("element must be wrapped by container");
     }
     if (!(this instanceof PageScaleJs)) {
-      return PageScaleJs(el, options);
+      return new PageScaleJs(el, options);
     }
     this.sizes = [];
     this.el = el;
