@@ -1,6 +1,6 @@
 {
   "name": "page-scale-js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Allow to scale you web-page and you html page reveive image behavior. You shoud to do some simple steps",
   "main": "index.js",
   "scripts": {
