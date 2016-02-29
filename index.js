@@ -48,7 +48,8 @@
     var self = this;
     var resize = function() {
       handleId = null;
-      self.onResize();
+      var scale = self.onResize();
+      opts.onChangeScale && opts.onChangeScale(scale);
     };
     this._onResize = function() {
       !handleId && clearTimeout(handleId);
@@ -107,10 +108,12 @@
         "px, " + y/scale + "px)");
       setSize(this.el, fixWidth, height / scale);
       setSize(this.el.parentNode, fixWidth * scale, height);
+      return scale;
     } else {
       transform(this.el);
       setSize(this.el);
       setSize(this.el.parentNode);
+      return 1;
     }
   };
 

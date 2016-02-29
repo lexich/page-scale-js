@@ -24,6 +24,9 @@ PageScaleJs(document.getElementById("scale-element"), {
   height: 1000, //original heigth of you site-layer (like original height of image)
   from: 1200,   //start width interval (by default equal width parametr)
   to: 1000,     //end width interval (by default equal 0)
+  onChangeScale: function(scale) {
+    //receive value of scale factor
+  }
 });
 ```  
 * [Profit!!!](http://lexich.github.io/page-scale-js)
