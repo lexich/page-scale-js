@@ -27,14 +27,15 @@
     if (!(this instanceof PageScaleJs)) {
       return new PageScaleJs(el, options);
     }
-    this.sizes = [];
-    this.el = el;
-    this.init(options);
+    this.init(el, options);
     return this;
   }
 
-  PageScaleJs.prototype.init = function(options) {
+  PageScaleJs.prototype.init = function(el, options) {
     var opts = options || {};
+    this.sizes = [];
+    this.el = el;
+    this.className = opts.className || "page-scale-js";
     if (opts.width && opts.height) {
       this.addRange(opts.width, opts.height, { from: opts.from, to: opts.to });
     }
@@ -78,7 +79,11 @@
       item = this.sizes[i];
       if (item.from >= w) {
         if (!item.to || item.to <= w) {
-          return item;
+          return {
+            index: i,
+            width: typeof item.width === "function" ? item.width() : item.width,
+            height: typeof item.height === "function" ? item.height() : item.height
+          };
         }
       }
     }
@@ -90,6 +95,7 @@
 
   PageScaleJs.prototype.onResize = function() {
     var item = this.getSizeItem();
+    const parentNode = this.el.parentNode;
     if (item) {
       var fixWidth = item.width;
       var fixHeight = item.height;
@@ -107,12 +113,20 @@
         "scale(" + scale + ") translate(" + x/scale +
         "px, " + y/scale + "px)");
       setSize(this.el, fixWidth, height / scale);
-      setSize(this.el.parentNode, fixWidth * scale, height);
+      setSize(parentNode, fixWidth * scale, height);
+      if (this.className) {
+        parentNode.classList.add(this.className);
+        parentNode.setAttribute("data-page-scale", item.index);
+      }
       return scale;
     } else {
       transform(this.el);
       setSize(this.el);
-      setSize(this.el.parentNode);
+      setSize(parentNode);
+      if (this.className) {
+        parentNode.classList.remove(this.className);
+        parentNode.removeAttribute("data-page-scale");
+      }
       return 1;
     }
   };
