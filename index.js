@@ -95,7 +95,7 @@
 
   PageScaleJs.prototype.onResize = function() {
     var item = this.getSizeItem();
-    const parentNode = this.el.parentNode;
+    var parentNode = this.el.parentNode;
     if (item) {
       var fixWidth = item.width;
       var fixHeight = item.height;
