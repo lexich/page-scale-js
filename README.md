@@ -1,4 +1,4 @@
-###page-scale-js
+### page-scale-js
 
 [![NPM version](https://badge.fury.io/js/page-scale-js.svg)](http://badge.fury.io/js/page-scale-js)
 [![Bower version](https://badge.fury.io/bo/page-scale-js.svg)](http://badge.fury.io/bo/page-scale-js)
@@ -30,3 +30,6 @@ PageScaleJs(document.getElementById("scale-element"), {
 });
 ```  
 * [Profit!!!](http://lexich.github.io/page-scale-js)
+
+#### Attention
+page-scale-js use `transform` for root container. It means that you can't use `position: fixed` inside.
